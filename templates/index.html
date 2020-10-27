@@ -1,6 +1,16 @@
-<h2>
+<!--index.html-->
+{% extends 'base.html' %}
+{% block title %}歡迎光臨我的部落格!!{% endblock %}
+{% block headmessage %}
+    <h1>
     Hello {{ name }}!!
-    <hr>
-    以下是我提供給你的幸運樂透號碼：<br>
-    {{ lottos }}
-</h2>
+    </h1>
+<h3 style="'font-family:標楷體;font-size:20pt;font-weight:bold;">本站文章列表</h3>
+{% endblock %}
+{% block content %}
+    {% for post in posts %}
+        <p style="font-family:標楷體;font-size:18pt;font-weight:bold;">
+            <a href='/post/{{post.slug}}'>標題: {{post.title}}</a>
+        </p>
+    {% endfor %}
+{% endblock %}
